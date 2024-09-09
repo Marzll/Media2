@@ -1,0 +1,50 @@
+<div class="container">
+
+<img [src]="logotipo" alt="Logo">
+
+<form>
+    <div>
+        <label class="form-label" for="b1">Bim 1</label>
+        <input class="form-control" type="number" name="b1" id="b1" #b1>
+    </div>
+    <div>
+        <label class="form-label" for="b2">Bim 2</label>
+        <input class="form-control" type="number" name="b2" id="b2" #b2>
+    </div>
+    <div>
+        <label class="form-label" for="b3">Bim 3</label>
+        <input class="form-control" type="number" name="b3" id="b3" #b3>
+    </div>
+    <div>
+        <label class="form-label" for="b4">Bim 4</label>
+        <input class="form-control" type="number" name="b4" id="b4" #b4>
+    </div>
+    <div>
+        <input class="btn btn-dark mt-3" type="button" value="Calcular" (click)="calcularMediaParcial(+b1.value, 
+                                                                            +b2.value, 
+                                                                            +b3.value, 
+                                                                            +b4.value)">
+    </div>
+    <div *ngIf="mostrarProvaFinal">
+        <label class="form-label" for="provaFinal">Avaliação Final</label>
+        <input class="form-control" type="number" name="provaFinal" id="provaFinal" #provaFinal>
+        
+        <input class="btn btn-dark mt-3" type="button" value="Calcular Média Final" 
+            (click)="calcularMediaFinal(+provaFinal.value)">
+      </div>
+</form>
+
+<div *ngIf="mediaParcial"> 
+    <p>Media Parcial = {{mediaParcial}}</p>
+</div>
+
+<div *ngIf="mediaFinal !== null">
+    <p>Média Final = {{mediaFinal}}</p>
+</div>
+
+<div *ngIf="situacao">
+    <p>Situação = {{situacao}}</p>
+</div>
+
+</div>
+
